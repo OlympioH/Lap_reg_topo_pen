@@ -1,0 +1,20 @@
+n_pts = 500
+nb_comp = 498
+f_true = 4*np.exp(-((X[:,1]-7)**2/20+(t-6)**2/5))+2*np.cos(t)**2*np.sin(X[:,1])**2
+max_alpha_square = inf
+mu_topo = 3
+sigma = 1 gaussian noise
+gamma_kernel = 1, lambda_kernel = 1
+10 NN
+Average Pers :
+-Topo : 6.00
+-TP : 4.80
+-Lasso : 15.33
+-TV : 12.48
+-Kernel : 61.80
+Average MSE :
+-Topo : 12.22
+-Lasso : 14.05
+-TV : 13.27
+-Kernel : 14.25
+-TP : 12.78
