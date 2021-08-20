@@ -16,9 +16,6 @@ import math
 
 
 from difftda               import *
-from Test_persistence import chi
-
-
 from scipy.special import sph_harm
 from sklearn import linear_model
 from sklearn import kernel_ridge 
@@ -37,7 +34,7 @@ def plot3Dmfold(X, Y): #plot a function Y=f(X) as a color map where X 3D array o
     surf=ax.scatter(X[:,0], X[:,1], X[:,2], c=Y)
     fig.colorbar(surf,shrink=0.5, aspect=5)
 
-def chi(st_alpha, f) :#compute the 0 and 1-persistence of a function f on a pre-computed simplicial complex
+def chi(st_alpha, f, max_pers = np.inf) :#compute the 0 and 1-persistence of a function f on a pre-computed simplicial complex
     st = gd.SimplexTree()
     
     for splx in st_alpha.get_filtration(): #Build a simplicial complex with filtration f.
