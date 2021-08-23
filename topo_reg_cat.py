@@ -81,8 +81,8 @@ pert=1
 split_train_test=True
     
 X=X[:n_pts]
-size_train=68
-size_test=4
+size_train=900
+size_test=100
 train_indices=rd.sample(range(n_pts), size_train)
 train_indices = np.sort(train_indices)
 test_indices=np.delete(np.arange(n_pts), train_indices)
@@ -100,8 +100,8 @@ Y_test=Y[test_indices]+noise[test_indices]
 
     
 #Build graph on the data
-w_graph=True #Gaussian graph
-kNN=False #K-NN graph
+w_graph=False #Gaussian graph
+kNN=True #K-NN graph
 
 if w_graph:
 
@@ -236,11 +236,11 @@ MSE=[]
 betainit  = np.random.uniform(low=-1., high=1., size=[nb_comp])
 beta = tf.Variable(initial_value=np.array(betainit[:,np.newaxis], dtype=np.float32), trainable=True)
 model = SimplexTreeModel(np.array(np.dot(XP_train, betainit), dtype=np.float32), stbase="st_rotation.txt", dim=[0], card=n_pts//4)
-optimizer = tf.keras.optimizers.SGD(learning_rate=5e-6)      
+optimizer = tf.keras.optimizers.SGD(learning_rate=4e-6)      
 #Gradient descent
 losses, dgms, betas = [], [], []
 mu = 5 #Amount of regularization
-for epoch in range(1000+1):    
+for epoch in range(2000+1):    
     with tf.GradientTape() as tape:
         
         # Compute persistence diagram
