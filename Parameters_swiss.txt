@@ -1,7 +1,6 @@
 n_pts = 500
 nb_comp = 498
 f_true = 4*np.exp(-((X[:,1]-7)**2/20+(t-6)**2/5))+2*np.cos(t)**2*np.sin(X[:,1])**2
-max_alpha_square = inf
 mu_topo = 3
 sigma = 1 gaussian noise
 gamma_kernel = 1, lambda_kernel = 1
